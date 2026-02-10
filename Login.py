@@ -2,6 +2,7 @@ import hashlib
 import re
 import os
 import hmac
+import getpass
 
 utilizadores = {}
 
@@ -54,7 +55,7 @@ def fazer_login(username, password):
 
 def main():
     while True:
-        print("\n--- Sistema de Login Seguro ---")
+        print("\n--- Sistema de Login ---")
         print("1. Registar novo utilizador")
         print("2. Fazer login")
         print("3. Sair")
@@ -66,7 +67,7 @@ def main():
             registar_utilizador(username, password, email)
         elif opcao == "2":
             username = input("Nome de utilizador: ")
-            password = input("Palavra-passe: ")
+            password = getpass.getpass("Palavra-passe: ")
             fazer_login(username, password)
         elif opcao == "3":
             print("Adeus!")
